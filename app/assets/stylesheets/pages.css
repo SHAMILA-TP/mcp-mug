@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0b0d;
+  color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  border-bottom: 1px solid #222;
+}
+
+header .logo {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+
+.product-image {
+  flex: 1 1 380px;
+  min-height: 480px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.mug-svg {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+}
+
+.mug-text-prompt {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 20px;
+  fill: #6cc070;
+}
+
+.mug-text-mcp {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 40px;
+  fill: #f5f5f5;
+  letter-spacing: 0.04em;
+}
+
+.mug-text-sub {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  fill: #8a8a8a;
+}
+
+.steam {
+  fill: none;
+  stroke: #c9c9c9;
+  stroke-width: 4;
+  stroke-linecap: round;
+  animation: rise 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.steam-2 {
+  animation-delay: 0.5s;
+}
+
+.steam-3 {
+  animation-delay: 1s;
+}
+
+@keyframes rise {
+  0%, 100% { opacity: 0.35; transform: translateY(0); }
+  50% { opacity: 0.85; transform: translateY(-6px); }
+}
+
+.product-info {
+  flex: 1 1 380px;
+  min-width: 300px;
+}
+
+.product-info h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.badge {
+  display: inline-block;
+  background: #262626;
+  color: #ccc;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+.product-info p {
+  color: #b5b5b5;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.sizes {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.size-card {
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 14px 18px;
+  text-align: center;
+  flex: 1;
+}
+
+.size-card .size {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.size-card .price {
+  color: #b5b5b5;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.size-card .stock {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #6cc070;
+}
+
+.size-card .stock.low {
+  color: #d99a3d;
+}
+
+.size-card .stock.out {
+  color: #d9544f;
+}
+
+.connect-box {
+  background: #141416;
+  border: 1px solid #262626;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 24px 0;
+}
+
+.connect-box code {
+  display: block;
+  background: #000;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #6cc070;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.connect-box p {
+  margin-top: 0;
+}
+
+.note {
+  font-size: 13px;
+  color: #808080;
+}
+
+.orders {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px 64px;
+}
+
+.orders h2 {
+  font-size: 18px;
+  border-top: 1px solid #222;
+  padding-top: 32px;
+}
+
+.orders table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.orders th, .orders td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #1c1c1c;
+  color: #ccc;
+}
+
+.orders th {
+  color: #808080;
+  font-weight: 500;
+}
+
+.empty {
+  color: #6b6b6b;
+  font-size: 14px;
+}

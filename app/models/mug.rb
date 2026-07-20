@@ -1,0 +1,2 @@
+class Mug < ApplicationRecord
+end

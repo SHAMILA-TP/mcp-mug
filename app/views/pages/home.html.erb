@@ -1,0 +1,88 @@
+<header>
+  <div class="logo">☕ MCP Mug</div>
+</header>
+
+<main>
+  <div class="product-image">
+    <svg viewBox="0 0 320 320" class="mug-svg" role="img" aria-label="MCP developer mug">
+      <ellipse cx="155" cy="285" rx="95" ry="14" fill="#00000014" />
+
+      <path class="steam" d="M125 75 C 113 58, 137 48, 125 30" />
+      <path class="steam steam-2" d="M155 75 C 143 58, 167 48, 155 26" />
+      <path class="steam steam-3" d="M185 75 C 173 58, 197 48, 185 30" />
+
+      <path d="M238 145 C 278 145, 278 215, 238 215" fill="none" stroke="#1a1a1a" stroke-width="16" stroke-linecap="round" />
+      <path d="M238 145 C 278 145, 278 215, 238 215" fill="none" stroke="#000000" stroke-width="16" stroke-linecap="round" opacity="0.15" transform="translate(0,3)" />
+
+      <path d="M72 100
+               L238 100
+               L228 258
+               C 226 276, 208 288, 155 288
+               C 102 288, 84 276, 82 258
+               Z" fill="#1a1a1a" />
+
+      <path d="M72 100 L238 100 L236 118 L74 118 Z" fill="#000000" opacity="0.22" />
+
+      <ellipse cx="155" cy="100" rx="83" ry="15" fill="#2b2b2b" />
+      <ellipse cx="155" cy="100" rx="68" ry="10" fill="#3c2415" />
+      <ellipse cx="155" cy="98" rx="68" ry="9" fill="#5a3820" />
+
+      <text x="155" y="205" text-anchor="middle" class="mug-text-mcp">MCP</text>
+    </svg>
+  </div>
+
+  <div class="product-info">
+    <span class="badge">Ordered through the MCP Server</span>
+    <h1>A Tool You Can Actually Hold</h1>
+    <p>
+      This is a learning project: a Rails app that's also a remote MCP server, protected
+      by OAuth 2.1 via WorkOS AuthKit. There's no "buy" button on this page &mdash; that's
+      intentional. Orders are placed by an AI agent (Claude, or any MCP-compatible client)
+      calling the <code>create_order</code> tool on your behalf, after it authenticates
+      with AuthKit.
+    </p>
+
+    <div class="sizes">
+      <% @mugs.each do |mug| %>
+        <div class="size-card">
+          <div class="size"><%= mug.size %></div>
+          <div class="price">$<%= "%.2f" % (mug.price_cents / 100.0) %></div>
+          <% stock_class = mug.stock == 0 ? "out" : (mug.stock <= 5 ? "low" : "") %>
+          <div class="stock <%= stock_class %>">
+            <%= mug.stock == 0 ? "Out of stock" : "#{mug.stock} in stock" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="connect-box">
+      <p>Connect an MCP client to this server:</p>
+      <code>npx mcp-remote http://localhost:3000/mcp</code>
+      <p class="note">Or add it to Claude Desktop / any MCP-compatible client pointed at this URL.</p>
+    </div>
+  </div>
+</main>
+
+<div class="orders">
+  <h2>Recent orders</h2>
+  <% if @recent_orders.any? %>
+    <table>
+      <thead>
+        <tr><th>Order</th><th>Size</th><th>Qty</th><th>Ordered by</th><th>When</th></tr>
+      </thead>
+      <tbody>
+        <% @recent_orders.each do |order| %>
+          <tr>
+            <td>#<%= order.id %></td>
+            <td><%= order.mug.size %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.customer_identifier %></td>
+            <td><%= order.created_at.strftime("%b %-d, %H:%M") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="empty">No orders yet &mdash; place one through an MCP client to see it here.</p>
+  <% end %>
+</div>
