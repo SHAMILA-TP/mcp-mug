@@ -10,7 +10,9 @@ class McpController < ActionController::API
 
     transport = MCP::Server::Transports::StreamableHTTPTransport.new(
       server,
-      stateless: true
+      stateless: true,
+      allowed_hosts: ["mcp-mug.onrender.com", "localhost:3000", "127.0.0.1:3000"],
+      allowed_origins: ["https://mcp-mug.onrender.com"]
     )
 
     status, headers, body = transport.handle_request(request)
