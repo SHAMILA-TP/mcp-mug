@@ -5,7 +5,7 @@ class WellKnownController < ActionController::API
 
   def oauth_protected_resource
     render json: {
-      resource: "http://localhost:3000/mcp",
+      resource: "https://mcp-mug.onrender.com/mcp",
       authorization_servers: [AUTHKIT_DOMAIN],
       bearer_methods_supported: ["header"]
     }

@@ -3,7 +3,7 @@ require "net/http"
 class AuthkitTokenVerifier
   ISSUER = "https://orderly-beacon-65-staging.authkit.app"
   JWKS_URI = "https://orderly-beacon-65-staging.authkit.app/oauth2/jwks"
-  AUDIENCE = "http://localhost:3000/mcp"
+  AUDIENCE = "https://mcp-mug.onrender.com/mcp"
 
   class InvalidToken < StandardError; end
 

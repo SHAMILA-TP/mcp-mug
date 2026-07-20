@@ -34,7 +34,7 @@ class McpController < ActionController::API
   end
 
   def unauthorized!
-    resource_metadata_url = "http://localhost:3000/.well-known/oauth-protected-resource"
+    resource_metadata_url = "https://mcp-mug.onrender.com/.well-known/oauth-protected-resource"
     response.set_header("WWW-Authenticate", %(Bearer resource_metadata="#{resource_metadata_url}"))
     render json: { error: "unauthorized" }, status: :unauthorized
   end
