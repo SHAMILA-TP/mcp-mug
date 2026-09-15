@@ -43,7 +43,7 @@ end
 
 gem "mcp", "~> 0.25.0"
 
-gem "jwt", "~> 3.2"
+gem "jwt", "~> 3.3"
 
 gem "rack-cors", "~> 3.0"
 
