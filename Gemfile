@@ -41,7 +41,7 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-gem "mcp", "~> 0.25.0"
+gem "mcp", "~> 1.6.1"
 
 gem "jwt", "~> 3.2"
 
